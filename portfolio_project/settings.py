@@ -130,3 +130,60 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Add this at the absolute bottom of settings.py
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+JAZZMIN_SETTINGS = {
+    # Title on the browser tab
+    "site_title": "Ekanem Bassey Admin",
+    
+    # Title on the brand header screen
+    "site_header": "EBTech Engine",
+    
+    # Brand logo text (Top left corner)
+    "site_brand": "EBTech_ Backend",
+    
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome back, Director. Accessing Secure Portfolio Database...",
+    
+    # Copyright on the footer layout
+    "copyright": "Ekanem Bassey Portfolio Ltd",
+    
+    # Top Menu Links
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Live Site", "url": "/", "new_window": True},
+    ],
+
+    # User Menu Link icon customization
+    "user_avatar": None,
+
+    #############
+    # Side Menu Custom Icons (Using FontAwesome)
+    #############
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user-shield",
+        "auth.group": "fas fa-users",
+        "portfolio.BlogPost": "fas fa-newspaper",  # Custom icon for blogs
+        "portfolio.Task": "fas fa-tasks",          # Custom icon for tasks
+    },
+    
+    # Layout Tweaks
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "changeform_format": "horizontal_tabs",
+}
+
+# 🎨 THEME CUSTOMIZATION (Dark Mode & Professional Accent Colors)
+JAZZMIN_UI_CHANGES = {
+    "theme": "darkly",              # Clean, dark mode base theme
+    "dark_mode_theme": "darkly",    # Ensures dark mode stays locked in
+    "navbar": "navbar-dark navbar-primary", # Primary accent highlight on top navbar
+    "sidebar": "sidebar-dark-primary",      # Matching sidebar accents
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "success": "btn-success",
+        "warning": "btn-warning",
+        "danger": "btn-danger"
+    }
+}
