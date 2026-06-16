@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekanem Bassey | Systems & Backend Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #030712;
+            --bg-card: #0b0f19;
+            --bg-input: #111827;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR & LOGO STYLE */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.3em;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        /* HERO HEADER */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 60%), linear-gradient(135deg, #0b0f19, #111827);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 50px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* SECTIONS & CARDS */
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.1);
+        }
+
+        .tech-badge {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            font-weight: 700;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .blog-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            border-radius: 4px 12px 12px 4px;
+        }
+
+        .blog-meta {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+
+        /* FORMS */
+        form {
+            background-color: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #d1d5db;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input, textarea {
+            font-family: inherit;
+            background-color: var(--bg-input) !important;
+            color: #ffffff !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 8px;
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent) !important;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            font-family: inherit;
+            background-color: var(--accent);
+            color: #030712;
+            font-weight: 700;
+            font-size: 1em;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        .alert-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            padding: 15px 22px;
+            font-weight: 700;
+            font-size: 0.95em;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .social-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .social-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/qr/X722LXDJPUM3G1" class="whatsapp-float" target="_blank">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 11.966.01c3.179.001 6.17 1.24 8.41 3.48 2.238 2.238 3.473 5.23 3.47 8.411-.004 6.557-5.341 11.896-11.912 11.896-2.004-.002-3.972-.511-5.718-1.483L0 24zm6.19-2.635c1.652.981 3.272 1.498 4.901 1.5c5.447 0 9.879-4.417 9.882-9.855.001-2.634-1.023-5.11-2.883-6.97-1.86-1.86-4.339-2.883-6.973-2.884-5.455 0-9.9 4.42-9.904 9.858-.002 1.748.459 3.456 1.336 4.981l-.985 3.596 3.69-.968z"></path></svg>
+        Chat on WhatsApp </a>
+
+    <nav>
+        <a href="#" class="logo-container">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="#111827"/>
+                <path d="M10 11L5 16L10 21" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 11L27 16L22 21" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 9L14 23" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div class="logo-text">EB<span>Tech_</span></div>
+        </a>
+        <div>
+            <a href="#projects" class="social-link" style="margin-right:20px;">SYSTEMS</a>
+            <a href="#contact" class="social-link">INQUIRY</a>
+        </div>
+    </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <header>
+        <h1>I AM EKANEM BASSEY</h1>
+        <p class="subtitle">Junior Software Developer & GDF FELLOW</p>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 25px auto; font-size: 1em;">
+            Designing, engineering, and optimizing robust backend systems with complex data relations and highly scalable logic.
+        </p>
+        <div style="font-size:0.9em; color: var(--text-muted);">
+            <span>🌐 Calabar, Nigeria</span> | 
+            <span>💼 Open to Roles</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="projects">
+            <h2 class="section-title">💻 Deployed Architectures</h2>
+            <div class="project-grid">
+                {% if projects %}
+                    {% for project in projects %}
+                        <div class="project-card">
+                            <h3 style="margin-top:0; color:#ffffff; font-size:1.5em; margin-bottom:15px;">{{ project.title }}</h3>
+                            <div style="margin-bottom:20px;">
+                                <span class="tech-badge">{{ project.technology }}</span>
+                            </div>
+                            <p style="color:#d1d5db; margin-bottom:20px; font-size:0.95em;">{{ project.description }}</p>
+                            
+                            {% if project.github_link %}
+                                <a href="{{ project.github_link }}" target="_blank" class="social-link">
+                                    Explore Blueprint Architecture →
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No architectures cataloged in the system database records yet.</p>
+                {% endif %}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">📝 Core Philosophies</h2>
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="blog-card">
+                        <h3 style="margin-top:0; color:#ffffff; font-size:1.3em; margin-bottom:10px;">{{ post.title }}</h3>
+                        <div class="blog-meta">
+                            <span>📅 {{ post.created_at|date:"F d, Y" }}</span> | 
+                            <span>🏷️ {{ post.category }}</span>
+                        </div>
+                        <p style="white-space: pre-line; color:#d1d5db; font-size:0.95em; margin:0;">{{ post.content }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No analytical mindset logs indexed yet.</p>
+            {% endif %}
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">✉️ Establish Connection</h2>
+            <p style="color: var(--text-muted); margin-bottom:30px;">Have an optimization problem, database requirement, or a software system logic design to execute? Send an inquiry directly through the pipeline.</p>
+            
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label for="name">Your Name / Organization</label>
+                <input type="text" id="name" name="name" placeholder="E.g., Tech Partner" required>
+
+                <label for="email">Secure Correspondence Email</label>
+                <input type="email" id="email" name="email" placeholder="partner@example.com" required>
+
+                <label for="message">Transmission Specifications (Details)</label>
+                <textarea id="message" name="message" rows="5" placeholder="Outline your platform architecture metrics or engineering goals..." required></textarea>
+
+                <button type="submit">Transmit System Request</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
